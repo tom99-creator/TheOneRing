@@ -1,0 +1,19 @@
+{
+  "name": "The One Ring",
+  "short_name": "OneRing",
+  "description": "INTERAKTIVNÍ PWA - THE ONE RING, ŠKOLNÍ PROJEKT",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [
+    {
+        "src": "icon128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+    },
+    {
+        "src": "icon192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    }
+  ]
+}

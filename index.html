@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheOneRing</title>
+    
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="manifest" href="manifest.json"/>
+    
+    <!-- defer - počká na přečtení HTML a až poté spustí JS, je to jistota!! -->
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <!-- body>div - konkrétní div v body (hlavní rámeček) -->
+    <div>
+        <h1>The One Ring</h1>
+        
+        <h2>Darkness:</h2>
+        <label class="switch">
+            <!-- input - základ pro formuláře (zde skrytý checkbox, drží stav zapnuto/vypnuto) -->
+            <input type="checkbox" id="RingSwitch"/>
+            <!-- span - inline prvek (nezabírá celý řádek). V HTML je prázdný, ale v CSS ho nastyluji a vytvořím z něj vizuální přepínač. -->
+            <span class="slider"></span>
+        </label>
+
+        <h2>Evil:</h2>
+        <!-- Druhý přepínač - stejný princip jako první. Má vlastní ID a třídu (switch2, slider2), aby se v JS a CSS nepletly s tím prvním. -->
+        <label class="switch2">
+            <input type="checkbox" id="RingSwitch2"/>
+            <span class="slider2"></span>
+        </label>
+
+        <!-- Obrázek prstenu, který v JS měníme přes vlastnost src -->
+        <img src="TheOneRing01.png" id="RingStatic"/>
+    </div>
+</body>
+</html>

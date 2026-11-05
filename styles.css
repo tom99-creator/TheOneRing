@@ -1,0 +1,119 @@
+/* Flexbox - display: flex; zapne flexbox pro zarovnání obsahu na střed */
+body {
+    display: flex;
+    flex-direction: column; /* Prvky pod sebou */
+    align-items: center; /* Zarovnání na střed */
+    text-align: center;
+}
+
+/* body>div - stylování hlavního rámečku */
+body>div {
+    border: 3px solid black; 
+    border-radius: 10px; 
+    padding: 20px; 
+    width: 90%;
+    max-width: 400px; /* Responzibilita - na PC to nebude obrovské */
+}
+
+/* Responzibilita - max-width: 100% zajistí, že se obrázek na mobilu zmenší a nepřeteče přes okraj */
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* --- PRVNÍ PŘEPÍNAČ --- */
+
+.switch {
+    margin-top: 10px;
+    position: relative; /* Vytvoříme "výchozí bod", vůči kterému se pak může posouvat kulička (position: absolute) */
+    display: inline-block; /* Chová se jako blok (jde mu nastavit šířka), ale nezabere celý řádek, takže zůstane uprostřed */
+    width: 60px;
+    height: 34px;
+}
+
+/* Skrytí původního checkboxu (input) - schováme ho, aby nebyl vidět, ale funguje dál na pozadí */
+.switch>input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+/* Pozadí přepínače (třída .slider) - to je ta šedá/zelená část, na kterou se kliká */
+.slider {
+    position: absolute; /* Umožní nám umístit prvek přesně podle nadřazeného .switch */
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0; /* Roztáhne prvek do všech stran rodiče */
+    background-color: silver;
+    border-radius: 34px;
+    transition: 0.4s; /* Plynulá animace změny barvy */
+}
+
+/* pseudotřída before - tvoří bílou kuličku, abychom nemuseli mít v HTML dva divy */
+.slider:before {
+    position: absolute;
+    content: ""; /* Musí tam být, i když je prázdný, jinak se prvek nezobrazí */
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%; /* Udělá z hranatého divu kouli */
+    transition: 0.4s; /* Plynulá animace posunu */
+}
+
+/* Selektor: najdi input, který je zaškrtnutý (checked), a hned vedle (+) najdi .slider */
+input:checked + .slider {
+    background-color: #00ff00; /* Zelená barva při zapnutí */
+}
+
+/* Posun bílé kuličky doprava při zapnutí */
+input:checked + .slider:before {
+    transform: translateX(26px); /* Posune prvek o 26 pixelů doprava po ose X */
+}
+
+/* --- DRUHÝ PŘEPÍNAČ --- */
+/* Stejná logika jako u prvního. Vlastní třídy (switch2, slider2) zajišťují, že se v CSS nepletly s prvním přepínačem. */
+
+.switch2 {
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch2>input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.slider2 {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: silver;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.slider2:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider2 {
+    background-color: #00ff00;
+}
+
+input:checked + .slider2:before {
+    transform: translateX(26px);
+}
