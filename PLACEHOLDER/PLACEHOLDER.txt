@@ -1,0 +1,20 @@
+<!-- HTML: Jen obrázek a přepínač -->
+<img id="zbran" src="NotShooting.jpg">
+<label class="switch">
+    <input type="checkbox" id="prepinac">
+    <span class="slider"></span>
+</label>
+
+
+
+// JS: Vytáhnutí a posluchač (přesně jako u prstenu)
+const prepinac = document.getElementById("prepinac");
+const zbran = document.getElementById("zbran");
+
+prepinac.addEventListener("change", () => {
+    if (prepinac.checked) {
+        zbran.src = "Shooting.gif"; // Když je zapnuto
+    } else {
+        zbran.src = "NotShooting.jpg"; // Když je vypnuto
+    }
+});
