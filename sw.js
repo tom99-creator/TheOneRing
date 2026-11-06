@@ -1,15 +1,15 @@
 //pro práci offline a ukládání do cache
-  
-const CACHE_NAME = "v1";
+const CACHE_NAME = "v1"; // Zvýšeno na v2, aby si telefon všiml změny
 const cacheAssets = [
-  // "/", - TOHLE NENI POTREBA
+  "/",
   "/index.html",
-  "/style.css",
+  "/styles.css",
   "/index.js",
-  "/icon512.png",
+  "/manifest.json",
+  "/icon128.png",
   "/icon192.png",
-  "/NotShooting.jpg",
-  "/Shooting.gif"
+  "/TheOneRing01.png",
+  "/TheOneRing02.png"
 ];
   
 self.addEventListener("install", e => {
@@ -40,6 +40,16 @@ self.addEventListener("activate", e => {
   
 self.addEventListener("fetch", e => {
   e.respondWith(
-    fetch(e.request).catch(() => caches.match(e.request))
+    fetch(e.request).catch(() => {
+      // Když selže internet, zkusíme najít soubor v paměti
+      return caches.match(e.request).then(response => {
+        if (response) {
+          return response;
+        } else if (e.request.mode === 'navigate') {
+          // Pokud telefon chce hlavní stránku a v paměti není, dáme mu index.html
+          return caches.match("/index.html");
+        }
+      });
+    })
   );
 });
