@@ -1,5 +1,5 @@
 //pro práci offline a ukládání do cache
-const CACHE_NAME = "v1"; // Zvýšeno na v2, aby si telefon všiml změny
+const CACHE_NAME = "v1"; 
 const cacheAssets = [
   "/",
   "/index.html",
