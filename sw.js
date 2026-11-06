@@ -1,5 +1,7 @@
 //pro práci offline a ukládání do cache
-const CACHE_NAME = "v1"; 
+// Zvýšení verze na "v2" zajistí, že si prohlížeč všimne změny a stáhne si nová data. 
+// Kdybych tam nechal "v1", mohl by si držet starou verzi v paměti.
+const CACHE_NAME = "v2"; 
 const cacheAssets = [
   "/",
   "/index.html",
